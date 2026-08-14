@@ -15,7 +15,10 @@ CREATE TABLE qna (
     writer VARCHAR(50) NOT NULL,
     status VARCHAR(20) DEFAULT '대기중', -- '대기중' 또는 '답변완료'
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+) AUTO_ID_CACHE 1;
+
+-- 테이블 삭제
+DROP TABLE if EXISTS qna;
 
 -- CRUD
 -- Create
