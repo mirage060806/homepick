@@ -214,7 +214,11 @@ psd
 thumb
 sketch
 
+.gradle
+bin/
+
 ### VisualStudioCode ###
+.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -234,3 +238,4 @@ sketch
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/java,python,react,visualstudiocode
+
