@@ -1,5 +1,4 @@
--- Active: 1786606659658@@gateway01.ap-northeast-1.prod.aws.tidbcloud.com@4000@homepick
-
+-- Active: 1786675857860@@gateway01.ap-northeast-1.prod.aws.tidbcloud.com@4000@homepick
 -- UTF-8(utf8mb4) 인코딩 설정으로 스키마 생성
 CREATE DATABASE IF NOT EXISTS homepick
 DEFAULT CHARACTER SET utf8mb4
@@ -8,6 +7,8 @@ DEFAULT COLLATE utf8mb4_unicode_ci;
 -- 생성된 스키마 사용
 USE homepick;
 
+-- 테이블 생성
+-- QnA 게시판
 CREATE TABLE qna (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
@@ -17,15 +18,29 @@ CREATE TABLE qna (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) AUTO_ID_CACHE 1;
 
+-- 회원가입
+CREATE TABLE member (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100),
+    role VARCHAR(20) DEFAULT 'ROLE_USER',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+) AUTO_ID_CACHE 1;
+
+
 -- 테이블 삭제
-DROP TABLE if EXISTS qna;
+-- DROP TABLE IF EXISTS 테이블;
+DROP TABLE IF EXISTS qna;
+
 
 -- CRUD
 -- Create
--- INSERT INTO (컬럼1, 컬럼2, ...) VALUES(값1, 값2, ...)
+-- INSERT INTO 테이블 (컬럼1, 컬럼2, ...) VALUES (값1, 값2, ...)
 
 -- 테스트용 초기 데이터 3건
-INSERT INTO qna (title, content, writer, status, created_at) VALUES
+INSERT INTO qna (title, content, writer) VALUES
 ('전세 계약 시 주의할 점이 있나요?', '전세 계약 시 체크해야 할 항목 문의드립니다.', 'user1'),
 ('매물 문의는 어떻게 하나요?', '직접 방문 상담도 가능한지 궁금합니다.', 'user1'),
 ('대출 한도 계산은 어떻게 하나요?', 'LTV, DSR 관련 계산 방법이 궁금합니다.', 'user2');
@@ -111,7 +126,8 @@ INSERT INTO qna (title, content, writer) VALUES
  '현재 아파트 매수를 고민하면서 지하철역에서 도보 5분 정도인 매물과 15분 정도인 매물을 비교하고 있습니다. 일반적으로 역과의 거리가 집값에 얼마나 영향을 미치는지 궁금합니다.',
  '황도현');
 
+
 -- Read
--- SEELCT 컬럼1, 컬럼2, ... FROM 테이블 [WHERE 조건];
--- SEELCT * FROM 테이블;
+-- SELECT 컬럼1, 컬럼2, ... FROM 테이블 [WHERE 조건];
+-- SELECT * FROM 테이블;
 SELECT * FROM qna;

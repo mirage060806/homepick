@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,python,react,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,python,react,visualstudiocode
+# Created by https://www.toptal.com/developers/gitignore/api/java,python,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,python,visualstudiocode
 
 ### Java ###
 # Compiled class file
@@ -37,6 +37,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+.gradle
 .Python
 build/
 develop-eggs/
@@ -156,7 +157,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-.vscode/
 
 # Spyder project settings
 .spyderproject
@@ -199,24 +199,6 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
-### react ###
-.DS_*
-logs
-**/*.backup.*
-**/*.back.*
-
-node_modules
-bower_components
-
-*.sublime*
-
-psd
-thumb
-sketch
-
-.gradle
-bin/
-
 ### VisualStudioCode ###
 .vscode
 .vscode/*
@@ -237,5 +219,4 @@ bin/
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/java,python,react,visualstudiocode
-
+# End of https://www.toptal.com/developers/gitignore/api/java,python,visualstudiocode
